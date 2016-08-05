@@ -1,4 +1,3 @@
 # core requirements for pyugrid
 numpy
-scipy
 netcdf4

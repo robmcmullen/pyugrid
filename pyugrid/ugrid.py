@@ -410,7 +410,10 @@ class UGrid(object):
 
     def _build_kdtree(self):
         # Only import if it's used.
-        from scipy.spatial import cKDTree
+        try:
+            from scipy.spatial import cKDTree
+        except ImportError:
+            raise ImportError("the scipy package must be installed to use locate_nodes")
         self._kdtree = cKDTree(self.nodes)
 
     def locate_faces(self, points, method='celltree'):
